@@ -1,9 +1,9 @@
 pipeline{
     agent any
     environment{
-        PORT=8020
-        CONTAINER_NAME=go-app
-        IMAGE_NAME=ahmedkabil/go-app
+        PORT="8020"
+        CONTAINER_NAME="go-app"
+        IMAGE_NAME="ahmedkabil/go-app"
     }
     stages{
         stage("clean old container"){
