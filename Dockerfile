@@ -9,4 +9,5 @@ RUN go build -o go-app main.go
 FROM alpine:latest
 WORKDIR /app
 COPY --from=builder /app/go-app .
-CMD ["sh","-c","./go-app"]
+COPY --from=builder /app/static ./static
+CMD ["./go-app"]
