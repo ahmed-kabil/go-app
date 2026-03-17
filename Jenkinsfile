@@ -13,7 +13,7 @@ pipeline{
         }
         stage("build the app"){
             steps{
-                sh "docker build --build-arg PORT=${PORT} -t ${IMAGE_NAME}:latest"
+                sh "docker build --build-arg PORT=${PORT} -t ${IMAGE_NAME}:latest ."
             }
         }
         stage("deploying the app"){
