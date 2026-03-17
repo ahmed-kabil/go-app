@@ -14,7 +14,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello! I am running on port %s", port)
+		fmt.Fprintf(w, "Hello! I am running on port %s\n", port)
 	})
 
 	fmt.Printf("Server starting on :%s...\n", port)

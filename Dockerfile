@@ -1,6 +1,12 @@
-FROM golang:tip-alpine3.22 
-WORKDIR /app/go-app
+FROM golang:tip-alpine3.22 AS builder
+WORKDIR /app/
 COPY . .
-ENV PORT=8020
+ARG PORT=8020
+ENV PORT=${PORT}
 EXPOSE $PORT 
-CMD ["go","run","main.go"]
+RUN go build -o go-app main.go
+
+FROM alpine:latest
+WORKDIR /app
+COPY --from=builder /app/go-app .
+CMD ["sh","-c","./go-app"]
